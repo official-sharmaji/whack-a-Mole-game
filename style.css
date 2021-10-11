@@ -1,0 +1,174 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Press Start 2P", cursive;
+    min-height: 100vh;
+    background: darkgreen;
+    overflow: hidden;
+    cursor: none;
+}
+
+.holes {
+    position: absolute;
+    display: grid;
+    grid-template-columns: repeat(4, 160px);
+    gap: 10px;
+    top: 50%;
+    left: 50%;
+    width: 670px;
+    height: 630px;
+    transform: translate(-50%, -50%);
+    --border:  1px solid black;
+}
+
+.hole {
+    position: relative;
+    height: 150px;
+    width: 160px;
+    --border: 1px solid black;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.pile {
+    position: absolute;
+    bottom: -30px;
+    left: -40px;
+    width: 210px;
+    object-fit: cover;
+    pointer-events: none;
+}
+
+.angryface {
+    position: absolute;
+    top: 155px;
+    left: 0;
+    width: 155px;
+    object-fit: contain;
+    z-index: -1;
+    --cursor: pointer; 
+}
+
+.scoretable {
+    font-size: 1.5rem;
+    height: 100px;
+    padding: 0.5rem 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    color: white;
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    transform: translate(-5%, -5%);
+    border:  1px solid white;
+}
+
+.scoretable div {
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal {
+    cursor: default;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background: rgb(17, 197, 26);
+    pointer-events: all;
+    z-index: 1000;
+}
+
+.modal button {
+    padding: 1rem 2rem;
+    background: none;
+    border: 1px solid white;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: 0.5s ease;
+    font-family: "Press Start 2P", cursive;
+}
+
+.modal button:hover {
+    background: rgba(255,255,255,0.6);
+    color: green;
+}
+
+.modal h1 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+
+.modal h2 {
+    visibility: hidden;
+}
+
+.highscore {
+    margin-left: 10px;
+    animation: scorebump 0.5s ease infinite alternate;
+}
+
+.display {
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.modalclose {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flash {
+    background: lightgreen;
+}
+
+.hammer {
+    position: absolute;
+    z-index: 1000;
+    height: 125px;
+    top: 0;
+    left: 0;
+    transform: translate(10px -40px);
+    pointer-events: none;
+}
+
+@keyframes scorebump {
+    from {
+        transform: translateY(10px);
+    }
+    to{
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes faceup {
+    from {
+        transform: translateY(140px);
+    }
+    to{
+        transform: translateY(-130px);
+    }
+}
+
+@keyframes facedown {
+    from {
+        transform: translateY(-130px);
+    }
+    to{
+        transform: translateY(140px);
+    }
+}
